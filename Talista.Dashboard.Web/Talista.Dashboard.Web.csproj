@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <UserSecretsId>aspnet-Talista.Dashboard.Web-8737813C-F0E7-4148-977C-0A771C8178C1</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Update="talista.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.4" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.4" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.4" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.4" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.4" />
+        <PackageReference Include="Serilog" Version="2.9.0" />
+        <PackageReference Include="Serilog.AspNetCore" Version="3.4.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Areas\Dashboard\Pages" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Talista.Dashboard.Data\Talista.Dashboard.Data.csproj" />
+      <ProjectReference Include="..\Talista.Dashboard.Models\Talista.Dashboard.Models.csproj" />
+      <ProjectReference Include="..\Talista.Dashboard.Services\Talista.Dashboard.Services.csproj" />
+    </ItemGroup>
+
+</Project>
