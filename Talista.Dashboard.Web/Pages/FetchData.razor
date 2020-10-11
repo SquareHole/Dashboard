@@ -1,6 +1,5 @@
 ﻿@page "/fetchdata"
-
-@using Talista.Dashboard.Models
+@using Talista.Dashboard.Models.ServiceContracts
 @using Talista.Dashboard.Services
 @inject WeatherForecastService ForecastService
 
@@ -40,7 +39,7 @@ else
 }
 
 @code {
-    private WeatherForecast[] forecasts;
+    private WeatherForecastModel[] forecasts;
 
     protected override async Task OnInitializedAsync()
     {

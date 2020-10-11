@@ -1,14 +1,14 @@
 using System;
 
-namespace Talista.Dashboard.Models
+namespace Talista.Dashboard.Models.ServiceContracts
 {
-    public class WeatherForecast
+    public class WeatherForecastModel
     {
         public DateTime Date { get; set; }
 
         public int TemperatureC { get; set; }
 
-        public int TemperatureF => 32 + (int) (TemperatureC / 0.5556);
+        public int TemperatureF { get; set; }
 
         public string Summary { get; set; }
     }
