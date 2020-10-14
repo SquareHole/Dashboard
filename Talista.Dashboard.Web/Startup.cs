@@ -1,16 +1,17 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Serilog;
 using Talista.Dashboard.Data.Data;
+using Talista.Dashboard.Models;
 using Talista.Dashboard.Services;
 using Talista.Dashboard.Web.Areas.Identity;
-using Talista.Dashboard.Models;
 
 namespace Talista.Dashboard.Web
 {
@@ -37,7 +38,7 @@ namespace Talista.Dashboard.Web
             services
                 .AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>
                 >();
-            
+
             services.AddAutoMapper(typeof(AutoMapping));
             services.AddSingleton<WeatherForecastService>();
         }
@@ -56,6 +57,8 @@ namespace Talista.Dashboard.Web
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseSerilogRequestLogging();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
